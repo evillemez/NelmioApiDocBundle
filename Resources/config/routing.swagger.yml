@@ -1,0 +1,5 @@
+nelmio_api_doc_swagger:
+    pattern: /swagger.js
+    defaults: { _controller: NelmioApiDocBundle:ApiDoc:swaggerJs }
+    requirements:
+        _method: GET

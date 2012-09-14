@@ -9,6 +9,7 @@
         <parameter key="nelmio_api_doc.formatter.markdown_formatter.class">Nelmio\ApiDocBundle\Formatter\MarkdownFormatter</parameter>
         <parameter key="nelmio_api_doc.formatter.simple_formatter.class">Nelmio\ApiDocBundle\Formatter\SimpleFormatter</parameter>
         <parameter key="nelmio_api_doc.formatter.html_formatter.class">Nelmio\ApiDocBundle\Formatter\HtmlFormatter</parameter>
+        <parameter key="nelmio_api_doc.formatter.swagger_formatter.class">Nelmio\ApiDocBundle\Formatter\SwaggerFormatter</parameter>
         <parameter key="nelmio_api_doc.sandbox.authentication">null</parameter>
     </parameters>
 
@@ -22,6 +23,10 @@
             parent="nelmio_api_doc.formatter.abstract_formatter" />
         <service id="nelmio_api_doc.formatter.simple_formatter" class="%nelmio_api_doc.formatter.simple_formatter.class%"
             parent="nelmio_api_doc.formatter.abstract_formatter" />
+        <service id="nelmio_api_doc.formatter.swagger_formatter" class="%nelmio_api_doc.formatter.swagger_formatter.class%"
+            parent="nelmio_api_doc.formatter.abstract_formatter">
+            <argument>%nelmio_api_doc.sandbox.endpoint%</argument>
+        </service>
         <service id="nelmio_api_doc.formatter.html_formatter" class="%nelmio_api_doc.formatter.html_formatter.class%"
             parent="nelmio_api_doc.formatter.abstract_formatter">
             <call method="setTemplatingEngine">

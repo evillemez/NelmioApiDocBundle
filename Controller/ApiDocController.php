@@ -23,4 +23,15 @@ class ApiDocController extends Controller
 
         return new Response($htmlContent, 200, array('Content-Type' => 'text/html'));
     }
+    
+    public function swaggerJsAction()
+    {
+        $extractedDoc = $this->get('nelmio_api_doc.extractor.api_doc_extractor')->all();
+        
+        //return new Response(sprintf("<pre>%s</pre>", print_r($extractedDoc, true)), 200, array('Content-Type' => 'text/html'));
+        
+        $jsonContent  = $this->get('nelmio_api_doc.formatter.swagger_formatter')->format($extractedDoc);
+
+        return new Response($jsonContent, 200, array('Content-Type' => 'application/json'));
+    }
 }

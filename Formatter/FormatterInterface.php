@@ -18,7 +18,7 @@ interface FormatterInterface
     /**
      * Format a collection of documentation data.
      *
-     * @param  array        $collection
+     * @param  array        $collection An array of ApiDoc instances, one for each Api route.
      * @return string|array
      */
     public function format(array $collection);
